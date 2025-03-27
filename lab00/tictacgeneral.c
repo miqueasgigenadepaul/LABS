@@ -4,7 +4,7 @@
 
 #include <assert.h> /* assert() */
 
-#define dim 4
+#define dim 5
 #define CELL_MAX (dim * dim - 1)
 
 void print_sep(int length)
