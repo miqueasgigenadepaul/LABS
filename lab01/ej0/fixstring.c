@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <assert.h>
 
-// #include <stdio.h>
+#include <stdio.h>
 
 #include "fixstring.h"
 
@@ -26,28 +26,32 @@ bool fstring_eq(fixstring s1, fixstring s2) {
 }
 
 bool fstring_less_eq(fixstring s1, fixstring s2) {
-    bool es_menor_o_igual = false;
+    bool s1esMenorOIgual = false;
+    bool menorEncontrado = false;
     unsigned int i = 0;
-    while (s1[i] != '\0' && s2[i] != '\0'){
+    while (s1[i] != '\0' && s2[i] != '\0' && !menorEncontrado){
         if (s1[i] < s2[i]){
-            es_menor_o_igual = true;
+            s1esMenorOIgual = true;
+            menorEncontrado = true;
         } else if (s1[i] > s2[i]){
-            es_menor_o_igual = false;
+            s1esMenorOIgual = false;
+            menorEncontrado = true;
         }
+
         i++;
     }
 
-    // si amabas cadenas llegan a su fin al mismo tiempo, son menores o iguales
-    if (s1[i] == '\0' && s2[i] == '\0'){
-        es_menor_o_igual = true;
+    if (!menorEncontrado && fstring_length(s1) < fstring_length(s2)){
+        s1esMenorOIgual = true;
+    } else if (!menorEncontrado && fstring_length(s1) > fstring_length(s2)){
+        s1esMenorOIgual = false;
     }
-    
-    return es_menor_o_igual;
+    return s1esMenorOIgual;
 }
 
 /* Aca abajo con int main probé que las funciones esten bien hechas
 pero deje el main comentado ya que tenemos un archivo main.c aparte
-
+*/
 int main() {
     // para fstring_length()
     char cadena[]="hola";
@@ -63,17 +67,15 @@ int main() {
     }
 
     // para fstring_less_eq()
-    char c1[]="mundoo";
-    char c2[]= "mundo";
+    char c1[]="aato";
+    char c2[]= "aato";
     if (fstring_less_eq(c1,c2)){
         printf("%s SI es menor o igual a %s\n", c1, c2);
     } else if (!fstring_less_eq(c1,c2)){
         printf("%s NO es menor o igual a %s\n", c1, c2);
-    }
+    } 
     return 0;
 }
-
-*/
 
 
 
