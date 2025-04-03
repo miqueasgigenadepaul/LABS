@@ -66,5 +66,7 @@ int main(int argc, char *argv[]) {
 
     /* check if it is a permutation of original */
     assert(array_is_permutation_of(copy, array, length));
+
+    quick_sort(array,length);
     return EXIT_SUCCESS;
 }
