@@ -8,8 +8,9 @@
 
 
 static void quick_sort_rec(int a[], unsigned int izq, unsigned int der) {
-    unsigned int ppiv = partition(a,izq,der);
+    unsigned int ppiv;
     if (der > izq) {
+        ppiv = partition(a,izq,der);
         quick_sort_rec(a,izq,ppiv-1);
         quick_sort_rec(a,ppiv+1,der);
     }
