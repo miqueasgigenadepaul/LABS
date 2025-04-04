@@ -17,7 +17,7 @@ static unsigned int partition(int a[], unsigned int izq, unsigned int der) {
     j=der;
 
     while (i <= j){
-        if (a[i] <= a[j]){
+        if (a[i] <= a[ppiv]){
             i++;
         } else if (a[j] >= a[ppiv]){
             j--;
