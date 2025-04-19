@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <assert.h>
 
-#include <stdio.h>
+// #include <stdio.h>
 
 #include "fixstring.h"
 
@@ -51,7 +51,7 @@ bool fstring_less_eq(fixstring s1, fixstring s2) {
 
 /* Aca abajo con int main probé que las funciones esten bien hechas
 pero deje el main comentado ya que tenemos un archivo main.c aparte
-*/
+
 int main() {
     // para fstring_length()
     char cadena[]="hola";
@@ -76,7 +76,7 @@ int main() {
     } 
     return 0;
 }
-
+*/
 
 
 
