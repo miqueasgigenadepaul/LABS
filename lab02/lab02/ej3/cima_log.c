@@ -15,31 +15,31 @@
  * @param a Arreglo.
  * @param length Largo del arreglo.
  */
+
+ static int cima_rec(int a[], int lft, int rgt) {
+    int mid;
+    bool es_cima;
+    bool izq_cima;
+    int res;
+
+    mid = (lft + rgt) / 2;
+
+    es_cima = ( (mid == 0 || a[mid - 1] < a[mid]) &&
+                (mid == rgt || a[mid] > a[mid + 1]) );
+
+    izq_cima = (mid > 0 && a[mid - 1] > a[mid]);
+
+    if (es_cima) {
+        res = mid;
+    } else if (izq_cima) {
+        res = cima_rec(a, lft, mid - 1);
+    } else {
+        res = cima_rec(a, mid + 1, rgt);
+    }
+
+    return res; 
+}
+
 int cima_log(int a[], int length) {
-    bool es_cima = false;
-    bool izq_cima = false;
-    bool der_cima = false;
-
-    int i = 0; 
-    while ( ( ( i == 0 ) || ( a[i] > a[i-1] ) ) &&  ( ( i == length ) || ( a[i] > a[i+1] ) ) ) {
-        es_cima = true;
-        i++;
-    }
-    
-    while ( ( i > 0 ) && ( a[i-1] > a[i] ) ) {
-        izq_cima = true;
-        i++;
-    }
-
-    while ( ( i < length ) && ( a[i] < a[i+1] ) ) {
-        der_cima = true;
-        i++;
-    }
-
-    bool res = false;
-    if (es_cima || izq_cima || der_cima) {
-        res = true;
-    }
-    
-    return res;
+    return cima_rec(a, 0, length - 1);
 }
