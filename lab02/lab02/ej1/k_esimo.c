@@ -18,10 +18,22 @@ void swap(int a[], int i, int j);
  * @param k Posicion dentro del arreglo si estuviera ordenado.
  */
 int k_esimo(int a[], int length, int k) {
+    int ppiv, lft, rgt;
+    lft = 0;
+    rgt = length - 1;
 
-    // COMPLETAR!!
+    ppiv = partition(a, lft, rgt);
+    
+    while (ppiv != k) {
+        if (ppiv < k) {
+            lft = ppiv + 1;
+        } else {
+            rgt = ppiv - 1;
+        }
+        ppiv = partition(a,lft,rgt);    
+    }
 
-    return 0;
+    return a[k];
 }
 
 int partition(int a[], int izq, int der) {

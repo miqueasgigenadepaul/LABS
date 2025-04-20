@@ -15,8 +15,22 @@
 bool tiene_cima(int a[], int length) {
 
     // COMPLETAR!!
+    bool b = false;
+    bool es_creciente = true;
+    bool es_decreciente = true;
+    for (int i = 0; i < length - 1; i++){
+        if (a[i] > a[i+1]){
+            es_creciente = false;
+        }
+        if (a[i] < a[i+1]){
+            es_decreciente = false;
+        }
 
-    return false;
+        if (es_creciente && es_decreciente){
+            b = true;
+        }
+    }
+    return b;
 }
 
 /**
@@ -34,6 +48,9 @@ bool tiene_cima(int a[], int length) {
 int cima(int a[], int length) {
 
     // COMPLETAR!!
-
-    return 0;
+    int k = 0;
+    while ((k < length) && (a[k] < a[k+1])){
+        k++;
+    }
+    return k;
 }
