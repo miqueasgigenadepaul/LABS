@@ -24,7 +24,7 @@
 
     mid = (lft + rgt) / 2;
 
-    es_cima = ( (mid == 0 || a[mid - 1] < a[mid]) &&
+    es_cima = ( (mid == 0 || a[mid] > a[mid - 1]) &&
                 (mid == rgt || a[mid] > a[mid + 1]) );
 
     izq_cima = (mid > 0 && a[mid - 1] > a[mid]);
