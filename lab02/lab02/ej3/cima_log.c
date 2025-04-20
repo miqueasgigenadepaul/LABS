@@ -16,8 +16,30 @@
  * @param length Largo del arreglo.
  */
 int cima_log(int a[], int length) {
+    bool es_cima = false;
+    bool izq_cima = false;
+    bool der_cima = false;
 
-    // COMPLETAR!!
+    int i = 0; 
+    while ( ( ( i == 0 ) || ( a[i] > a[i-1] ) ) &&  ( ( i == length ) || ( a[i] > a[i+1] ) ) ) {
+        es_cima = true;
+        i++;
+    }
+    
+    while ( ( i > 0 ) && ( a[i-1] > a[i] ) ) {
+        izq_cima = true;
+        i++;
+    }
 
-    return 0;
+    while ( ( i < length ) && ( a[i] < a[i+1] ) ) {
+        der_cima = true;
+        i++;
+    }
+
+    bool res = false;
+    if (es_cima || izq_cima || der_cima) {
+        res = true;
+    }
+    
+    return res;
 }
