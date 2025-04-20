@@ -15,22 +15,26 @@
 bool tiene_cima(int a[], int length) {
 
     // COMPLETAR!!
-    bool b = false;
-    bool es_creciente = true;
-    bool es_decreciente = true;
-    for (int i = 0; i < length - 1; i++){
-        if (a[i] > a[i+1]){
-            es_creciente = false;
-        }
-        if (a[i] < a[i+1]){
-            es_decreciente = false;
-        }
+    int i = 0;
+    bool es_creciente = false;
+    bool es_decreciente = false;
 
-        if (es_creciente && es_decreciente){
-            b = true;
-        }
+    while (i < length - 1 && a[i] < a[i+1]){
+        es_creciente = true;
+        i++;
     }
-    return b;
+
+    while (i < length - 1 && a[i] > a[i+1]){
+        es_decreciente = true;
+        i++;
+    }
+
+    bool res = false;
+    if (es_creciente && es_decreciente && i == length - 1){
+        res = true;
+    }
+
+    return res;
 }
 
 /**

@@ -27,7 +27,7 @@ void test_tiene_cima(void) {
       { {8}, 1, true },
 
         // COMPLETAR!!
-
+      
     };
     bool result;
 
