@@ -1,8 +1,0 @@
-Clase 27 de marzo
-
-gdb
-debugging
-
-buscar gdb commands
-
-

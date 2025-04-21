@@ -32,9 +32,9 @@
     if (es_cima) {
         res = mid;
     } else if (izq_cima) {
-        res = cima_rec(a, lft, mid - 1);
+        res = cima_rec(a, lft, mid - 1); // La cima está en la parte izquierda, llamamos recursivamente a la mitad izquierda
     } else {
-        res = cima_rec(a, mid + 1, rgt);
+        res = cima_rec(a, mid + 1, rgt);  // La cima está en la parte derecha, llamamos recursivamente a la mitad derecha
     }
 
     return res; 
