@@ -3,9 +3,9 @@
 #include "k_esimo.h"
 
 int main(void) {
-    int a[] = {8, -2, 9, 0, 13};
+    int a[] = {-2, 8, 9, 0, 13};
     int length = 5;
-    int k = 1;
+    int k = 2;
     int result;
 
     result = k_esimo(a, length, k);
